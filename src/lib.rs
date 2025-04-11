@@ -11,10 +11,10 @@ pub fn derive(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
 
     // get the struct data out of the input and panic if it's anything else
     let data_struct = get_struct_data(&input);
-    let mut fields = data_struct.fields;
+    let fields = data_struct.fields;
 
     // get the field names of the struct
-    let names = get_field_names(&mut fields);
+    let names = get_field_names(&fields);
 
     // pass through generics
     let (impl_generics, ty_generics, where_clause) = input.generics.split_for_impl();
